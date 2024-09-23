@@ -1,0 +1,30 @@
+services:
+#  app:
+#    container_name: pos-duran-back-app
+#    build:
+#      context: .
+#      target: builder  # Usar el objetivo builder para aprovechar la cache de capas
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - pos_db
+#    environment:
+#      - DATABASE_URL=jdbc:mysql://db:3306/aceros_duran
+#      - DATABASE_USERNAME=root
+#      - DATABASE_PASSWORD=password
+#    volumes:
+#      - gradle_cache:/home/gradle/.gradle  # Cache de Gradle
+  pos_db:
+    image: "mysql:8.0"
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=aceros_duran
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql  # Volumen para persistir la base de datos
+
+volumes:
+  mysql_data:
+    external: false
