@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/pos-duran/api/v1/auth")
+@RequestMapping("/pos/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
