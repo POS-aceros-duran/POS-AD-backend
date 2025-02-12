@@ -1,4 +1,4 @@
-FROM gradle:jdk22-jammy
+FROM gradle:jdk21-jammy
 
 # Variables de entorno para la versión de Gradle
 ENV GRADLE_HOME=/opt/gradle
