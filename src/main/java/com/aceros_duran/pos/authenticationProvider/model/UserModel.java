@@ -5,14 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @Builder
@@ -21,10 +19,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "user_App", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
 public class UserModel implements UserDetails {
+
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "uuid2")
-    private UUID id;
+    @Column(name = "id", columnDefinition = "char(36)", nullable = false, unique = true)
+    private String id;
 
     @Column(nullable = false)
     private String username;
@@ -39,11 +37,11 @@ public class UserModel implements UserDetails {
     private boolean status = true;
 
     public String getIdAsString() {
-        return id.toString();
+        return id;
     }
 
     public void setIdFromString(String id) {
-        this.id = UUID.fromString(id);
+        this.id = id;
     }
 
     @Override
