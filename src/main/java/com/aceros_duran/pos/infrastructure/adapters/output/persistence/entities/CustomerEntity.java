@@ -35,9 +35,6 @@ public class CustomerEntity {
     private String address;
     private String associatedCompany;
     
-    @Column(name = "registration_date", nullable = false, columnDefinition = "DATE DEFAULT CURRENT_DATE")
-    private LocalDate registrationDate;
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private CustomerCategoryEntity category;
