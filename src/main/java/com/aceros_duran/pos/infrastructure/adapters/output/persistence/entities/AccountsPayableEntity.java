@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -35,7 +36,7 @@ public class AccountsPayableEntity {
     @JoinColumn(name = "purchase_id")
     private PurchaseEntity purchase;
     
-    private Double amount;
+    private BigDecimal amount;
     
     @Column(name = "due_date", columnDefinition = "DATE")
     private LocalDate dueDate;

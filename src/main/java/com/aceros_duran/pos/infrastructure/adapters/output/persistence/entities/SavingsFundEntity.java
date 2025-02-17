@@ -5,12 +5,9 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,22 +19,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "expenses")
-public class ExpenseEntity {
-    
+@Table(name = "savings_fund")
+public class SavingsFundEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id; // Se mantiene INT para esta tabla
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "branch_id", nullable = false)
-    private BranchEntity branch;
+    @Column(name = "user_id", length = 36, nullable = false)
+    private String userId; // Referencia a User (UUID)
     
-    private String description;
-    private BigDecimal amount;
+    @Column(name = "date", columnDefinition = "DATE", nullable = false)
+    private LocalDate date;
     
-    @Column(name = "expense_date", columnDefinition = "DATE")
-    private LocalDate expenseDate;
+    @Column(name = "contribution", nullable = false)
+    private BigDecimal contribution;
     
-    private String category;
+    // bonus es una columna computada (generada always as)
+    @Column(name = "bonus", nullable = false, insertable = false, updatable = false)
+    private BigDecimal bonus;
 }

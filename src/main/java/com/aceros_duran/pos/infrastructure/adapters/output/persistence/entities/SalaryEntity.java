@@ -22,22 +22,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "expenses")
-public class ExpenseEntity {
-    
+@Table(name = "salaries")
+public class SalaryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "branch_id", nullable = false)
-    private BranchEntity branch;
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
     
-    private String description;
     private BigDecimal amount;
     
-    @Column(name = "expense_date", columnDefinition = "DATE")
-    private LocalDate expenseDate;
-    
-    private String category;
+    @Column(name = "payment_date", columnDefinition = "DATE")
+    private LocalDate paymentDate;
 }

@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.security.Timestamp;
 import java.util.Set;
 
@@ -36,7 +37,7 @@ import lombok.NoArgsConstructor;
     @Column(name = "sale_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp saleDate;
     
-    private Double total;
+    private BigDecimal total;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "payment_type_id")
