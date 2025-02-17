@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -31,7 +32,7 @@ public class SalaryEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
     
-    private Double amount;
+    private BigDecimal amount;
     
     @Column(name = "payment_date", columnDefinition = "DATE")
     private LocalDate paymentDate;

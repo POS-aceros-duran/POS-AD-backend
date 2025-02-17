@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.security.Timestamp;
 
 import jakarta.persistence.Column;
@@ -34,6 +35,6 @@ public class InvoiceEntity {
     @Column(name = "issue_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp issueDate;
     
-    private Double total;
+    private BigDecimal total;
     private String filePath;
 }

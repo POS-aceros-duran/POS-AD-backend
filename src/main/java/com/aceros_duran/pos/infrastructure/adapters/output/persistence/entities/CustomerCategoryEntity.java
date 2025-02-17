@@ -1,5 +1,7 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +30,7 @@ public class CustomerCategoryEntity {
     private String description;
     
     private Long minimumFrequency;
-    private Double minimumAmount;
-    private Double discount;
+    private BigDecimal minimumAmount;
+    private BigDecimal discount;
     private Long inactivityPeriod;
 }

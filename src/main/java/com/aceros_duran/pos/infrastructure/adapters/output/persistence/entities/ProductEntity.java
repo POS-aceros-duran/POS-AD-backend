@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -43,8 +44,8 @@ public class ProductEntity {
     private ProductCategoryEntity category;
 
     private String description;
-    private Double purchasePrice;
-    private Double salePrice;
+    private BigDecimal purchasePrice;
+    private BigDecimal salePrice;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ProductImageEntity> images;

@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.security.Timestamp;
 import java.util.Set;
 
@@ -40,7 +41,7 @@ public class PurchaseEntity {
     @Column(name = "purchase_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp purchaseDate;
     
-    private Double total;
+    private BigDecimal total;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "purchase_type_id", nullable = false)

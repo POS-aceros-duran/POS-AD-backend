@@ -1,5 +1,6 @@
 package com.aceros_duran.pos.infrastructure.adapters.output.persistence.entities;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -33,7 +34,7 @@ public class ExpenseEntity {
     private BranchEntity branch;
     
     private String description;
-    private Double amount;
+    private BigDecimal amount;
     
     @Column(name = "expense_date", columnDefinition = "DATE")
     private LocalDate expenseDate;
